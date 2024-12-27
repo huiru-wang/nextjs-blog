@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './prism.css';
+@import 'prism-themes/themes/prism-coldark-dark.css';
+
+@layer base {
+  :root {
+    --background: #ebe2cd;
+    --foreground: #171717;
+    --card: #d9d5de;
+    --card-foreground: #171717;
+    --popover: #ffffff;
+    --popover-foreground: #171717;
+    --primary: #1a202c;
+    --primary-foreground: #ffffff;
+    --secondary: #ecd79b;
+    --secondary-foreground: #171717;
+    --muted: #edf2f7;
+    --muted-foreground: #718096;
+    --accent: #edf2f7;
+    --accent-foreground: #1a202c;
+    --destructive: #e53e3e;
+    --destructive-foreground: #ffffff;
+    --border: #242628;
+    --input: #e2e8f0;
+    --ring: #1a202c;
+    --radius: 0.75rem;
+
+    --sidebar-background: #f7fafc;
+    --sidebar-foreground: #2d3748;
+    --sidebar-primary: #1a202c;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #edf2f7;
+    --sidebar-accent-foreground: #1a202c;
+    --sidebar-border: #e2e8f0;
+    --sidebar-ring: #4299e1;
+
+    --underline-color: #1a202c;
+  }
+
+  .dark {
+    --background: #1a202c;
+    --foreground: #ffffff;
+    --card: #8b756e;
+    --card-foreground: #ffffff;
+    --popover: #2d3748;
+    --popover-foreground: #ffffff;
+    --primary: #ffffff;
+    --primary-foreground: #1a202c;
+    --secondary: #eb9c64;
+    --secondary-foreground: #ffffff;
+    --muted: #4a5568;
+    --muted-foreground: #cbd5e0;
+    --accent: #4a5568;
+    --accent-foreground: #ffffff;
+    --destructive: #9b2c2c;
+    --destructive-foreground: #ffffff;
+    --border: #4a5568;
+    --input: #4a5568;
+    --ring: #63b3ed;
+
+    --sidebar-background: #2d3748;
+    --sidebar-foreground: #edf2f7;
+    --sidebar-primary: #ffffff;
+    --sidebar-primary-foreground: #1a202c;
+    --sidebar-accent: #4a5568;
+    --sidebar-accent-foreground: #edf2f7;
+    --sidebar-border: #4a5568;
+    --sidebar-ring: #63b3ed;
+
+    --underline-color: #63b3ed;
+  }
+
+  *,
+  ::before,
+  ::after {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+@layer components {
+  .pixel-card {
+    @apply border-4 border-[var(--border)] shadow-[4px_4px_0_0_var(--border)] bg-[var(--card)];
+    user-select: none;
+    /* Prevent text selection */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .pixel-card:active {
+    @apply shadow-[0_0_0_0_var(--border)];
+    transform: translate(4px, 4px);
+  }
+
+  .nav-item {
+    @apply bg-[var(--secondary)] text-[var(--secondary-foreground)] transition-colors px-4 py-2;
+  }
+}
+
+.prose {
+  color: var(--foreground);
+}
+
+.dark .prose {
+  color: var(--foreground);
+}
+
+.prose pre {
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  @apply w-4 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[var(--muted)];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[var(--primary)] rounded-[4px] border-2 border-solid border-[var(--muted)];
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[var(--primary)];
+}
