@@ -88,7 +88,7 @@
 
 @layer components {
   .pixel-card {
-    @apply border-4 border-[var(--border)] shadow-[4px_4px_0_0_var(--border)] bg-[var(--card)];
+    @apply border-4 border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)] bg-[var(--card)];
     user-select: none;
     /* Prevent text selection */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -110,10 +110,6 @@
 
 .dark .prose {
   color: var(--foreground);
-}
-
-.prose pre {
-  overflow: auto;
 }
 
 ::-webkit-scrollbar {

@@ -19,8 +19,8 @@ model Post {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   title       String   @db.VarChar(255)
-  tags        String[]
   category    String
+  tags        String[]
   content     String
   slug        String?  @unique // SEO友好，通过Slug来路由，id是不可读的，不友好（避免中文）
   keywords    String? // SEO友好，关键字
