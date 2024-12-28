@@ -3,7 +3,7 @@ title: Solidity FundMe Smart Contract
 category: web3
 tags: [ethereum, solidity]
 publishedAt: 2023-01-03
-description: achieve solidity FundMe smart contract demo
+description: achieve solidity FundMe smart contract demo 
 ---
 
 众筹合约目标：
@@ -34,7 +34,6 @@ contract FundMe {
     }
 }
 ```
-
 
 # 2. 获取链下数据
 

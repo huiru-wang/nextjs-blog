@@ -11,7 +11,7 @@ export default function Layout({ children, }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <div className="flex items-center justify-center">
+        <div className="self-center">
             {children}
         </div>
     )

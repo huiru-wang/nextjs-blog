@@ -2,6 +2,7 @@
 import Link from "next/link";
 import ModeToggle from "./ModeToggle";
 import { Press_Start_2P } from "next/font/google";
+import Avatar from "./Avatar";
 
 // import GithubIcon from "@/public/icons/GithubIcon";
 // import SignInAndOut from "./SignIn";
@@ -16,7 +17,8 @@ const navigationItems = [
 
 export default function Header() {
     return (
-        <header className="px-4 py-2">
+        <header className="px-4 py-2 flex items-center">
+            <Avatar page={"/"}></Avatar>
             <div className="flex-grow flex justify-center">
                 <PixelatedNavbar />
             </div>
@@ -28,7 +30,7 @@ export default function Header() {
 function PixelatedNavbar() {
 
     return (
-        <nav className={`${press_start_2p.className} text-press-start-small flex justify-center space-x-8 items-center m-4`}>
+        <nav className={`${press_start_2p.className} text-[0.6rem] sm:text-[0.9rem] flex justify-center space-x-8 items-center m-4`}>
             {
                 navigationItems.map(item => {
                     return (

@@ -5,25 +5,65 @@ import rehypePrismPlus from 'rehype-prism-plus';
 import { Frontmatter } from "./types";
 
 const postParentDir = "content";
+
+const separator = path.sep;
+
 const mdxBaseDir = path.join(process.cwd(), postParentDir);
 
 /**
  * 根据slug读取并解析md、mdx
+ * 如文件位置为：content/fold1/fold2/hello.mdx
+ * 则slug为：posts/fold1_fold2_hello.mdx
+ * 解析时将"_"替换为"/"，找到对应的文件
+ * 
  * @param slug slug
  * @returns {content, frontmatter}
  */
 export const getMdxContentBySlug = (slug: string) => {
-    // 验证和清理 slug
-    if (!slug || !/^[a-zA-Z0-9\-_]+$/.test(slug)) {
+    // slug: .md .mdx文件
+    if (!slug || !/^[a-zA-Z0-9\-_]+\.mdx?$/.test(slug)) {
         throw new Error('Invalid slug');
     }
     const targetMdx = slug?.split('_').join('/');
-    const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}.md`);
+    const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
+    console.log(targetMdxPath);
     if (!fs.existsSync(targetMdxPath)) {
         throw new Error(`File not found: ${targetMdxPath}`);
     }
     const postMdxContent = fs.readFileSync(targetMdxPath, 'utf8');
     return postMdxContent;
+}
+
+/**
+ * 读取本地md、mdx文件的frontmatter并组装slug
+ * 支持多级目录
+ * slug拼接方式：按照文件夹的层级结构，如 posts/fold1_fold2_hello.mdx
+ * 
+ * @returns {frontmatter, slug}[]
+ */
+export const getPostMetadatas = async (baseDir: string = mdxBaseDir) => {
+    const result: { slug: string, frontmatter: Frontmatter }[] = [];
+    const readDirRecursively = async (currentDir) => {
+        const files = await fs.promises.readdir(currentDir);
+        for (const file of files) {
+            const filePath = path.join(currentDir, file);
+            const stats = await fs.promises.stat(filePath);
+            if (stats.isDirectory()) {
+                await readDirRecursively(filePath);
+            } else if (stats.isFile() && (path.extname(file) === '.md' || path.extname(file) === '.mdx')) {
+                const fileContent = await fs.promises.readFile(filePath, 'utf8');
+                const { frontmatter } = await parseMdx(fileContent);
+                const relativePath = path.relative(baseDir, filePath);
+                const slug = relativePath.replaceAll(separator, '_');
+                result.push({
+                    slug: slug,
+                    frontmatter: frontmatter,
+                });
+            }
+        }
+    };
+    await readDirRecursively(baseDir);
+    return result;
 }
 
 /**
@@ -42,40 +82,4 @@ export const parseMdx = async (content: string): Promise<{ content: unknown, fro
             }
         },
     });
-}
-
-/**
- * 读取本地md、mdx文件的frontmatter和slug
- * 
- * @returns {frontmatter, slug}[]
- */
-export const getPostMetadatas = async () => {
-    const result: { slug: string, frontmatter: Frontmatter }[] = [];
-    const readDirRecursively = async (currentDir) => {
-        const files = fs.readdirSync(currentDir);
-        for (const file of files) {
-            const filePath = path.join(currentDir, file);
-            const stats = fs.statSync(filePath);
-            if (stats.isDirectory()) {
-                await readDirRecursively(filePath);
-            } else if (stats.isFile() && (path.extname(file) === '.md' || path.extname(file) === '.mdx')) {
-                const parentDirName = path.basename(currentDir);
-                const fileContent = fs.readFileSync(filePath, 'utf8');
-                const { frontmatter } = await parseMdx(fileContent);
-                const filename = file.replace(/\.md$|\.mdx$/, "");
-                let slug;
-                if (parentDirName === postParentDir) {
-                    slug = filename;
-                } else {
-                    slug = `${parentDirName}_${filename}`;
-                }
-                result.push({
-                    slug: slug,
-                    frontmatter: frontmatter,
-                });
-            }
-        }
-    };
-    await readDirRecursively(mdxBaseDir);
-    return result;
 }

@@ -11,7 +11,7 @@ export default function Layout({ children, }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <div>
+        <div className="flex flex-col justify-center w-3/4">
             {children}
         </div>
     )

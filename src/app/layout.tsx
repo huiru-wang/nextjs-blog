@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Roboto_Mono } from "next/font/google";
 import ParticlesBackground from "@/components/ParticlesBackground";
+import BackTop from "@/components/BackTop";
 
 const roboto_mono = Roboto_Mono({ subsets: ["latin"] });
 
@@ -25,7 +26,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           <ParticlesBackground>
             <Header />
-            <div className="mx-8 flex items-center justify-center">{children}</div>
+            <div className="mx-4 flex items-center justify-center">{children}</div>
+            <BackTop />
             <Footer />
           </ParticlesBackground>
         </ThemeProvider>

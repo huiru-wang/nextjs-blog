@@ -2,8 +2,7 @@
 import PixelatedCard from "@/components/posts/PixelatedCard";
 import TagPanel from "@/components/posts/TagPanel";
 import { useMemo, useState } from "react";
-import MotionDivWrapper from "../MotionDivWrapper";
-
+import BlurFade from "../ui/blur-fade";
 export function PostList({ initialPostMetadatas }) {
 
     const [postMetadatas, setPostMetadatas] = useState(initialPostMetadatas || []);
@@ -24,22 +23,24 @@ export function PostList({ initialPostMetadatas }) {
     const frontmatters = useMemo(() => initialPostMetadatas.map(post => post.frontmatter), [initialPostMetadatas]);
 
     return (
-        <div>
+        <div className="flex flex-col w-full">
 
             <TagPanel frontmatters={frontmatters} onFilter={postMetadataFilter} />
 
-            <MotionDivWrapper
-                initial={{ opacity: 0.3 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-            >
+            {/* w-full保持grid容器充满当前父容器宽度，子元素w-full可以保持1:1比例，充满grid容器 */}
+            <div className="self-center w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {
-                    postMetadatas.map(({ slug, frontmatter }) => (
-                        <PixelatedCard key={slug} slug={slug} frontmatter={frontmatter} />
+                    postMetadatas.map(({ slug, frontmatter }, index) => (
+                        <BlurFade
+                            delay={(index + 1) * 0.1}
+                            inView key={slug}
+                            className="w-full">
+                            <PixelatedCard slug={slug} frontmatter={frontmatter} />
+                        </BlurFade>
                     ))
                 }
-            </MotionDivWrapper>
+            </div>
+
         </div>
     )
 }

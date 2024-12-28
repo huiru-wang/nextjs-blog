@@ -2,7 +2,7 @@
 title: Solidity Basic
 category: web3
 tags: [ethereum, solidity]
-publishedAt: 2023-01-01
+publishedAt: 2023-12-01
 description: solidity key words and data types
 ---
 
@@ -56,7 +56,7 @@ memory & calldata & storage：显式告知编译器所修饰的对象存储在�
 
 # view & pure
 
-
+![](/images/web3-solidity-injected-provider.png)
 
 
 

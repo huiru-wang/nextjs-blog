@@ -6,6 +6,7 @@
  * @returns 目录组件
  */
 export default function PostTableOfContent(toc) {
+
     return (
         <div className="hidden 2xl:block fixed right-24 top-36 w-64 p-4 border border-gray-200 rounded shadow-[4px_4px_0_0_var(--border)]">
             <nav>

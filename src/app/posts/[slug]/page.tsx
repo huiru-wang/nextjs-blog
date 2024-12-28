@@ -4,8 +4,9 @@ import { notFound } from "next/navigation";
 import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeToc from 'rehype-toc';
 import PostTableOfContent from "@/components/posts/PostTableOfContent";
-import PostContent from "@/components/posts/PostContent";
+import PostContainer from "@/components/posts/PostContainer";
 import remarkGfm from 'remark-gfm';
+import PopupImage from "@/components/posts/PopupImg";
 export async function generateMetadata({ params }) {
 
     const { slug } = await params;
@@ -31,13 +32,12 @@ export default async function Page({ params }) {
         const { content, frontmatter, toc } = await compile(source);
 
         if (!content) {
-            // 路由到/src/posts/[slug]/not-found.tsx
             return notFound();
         }
 
         return (
             <div>
-                <PostContent content={content} frontmatter={frontmatter} />
+                <PostContainer content={content} frontmatter={frontmatter} />
                 <PostTableOfContent toc={toc} />
             </div>
         );
@@ -47,7 +47,6 @@ export default async function Page({ params }) {
     }
 }
 
-// TODO 解析toc，在服务端组件中compile，在客户端组件中进行Dom解析生成TOC
 async function compile(content) {
     let toc = "";
     const result = await compileMDX({
@@ -72,8 +71,7 @@ async function compile(content) {
             // 需要目录跳转的标签，加上id，当前只需要2级
             h1: (props) => <h1 id={`${props.children}`}>{props.children}</h1>,
             h2: (props) => <h2 id={`${props.children}`}>{props.children}</h2>,
-            pre: (props) => <pre className="overflow-hidden" {...props} />,
-            code: (props) => <code className="background foreground rounded px-1" {...props} />
+            img: (props) => <PopupImage {...props} />,
         }
     });
     return { ...result, toc }

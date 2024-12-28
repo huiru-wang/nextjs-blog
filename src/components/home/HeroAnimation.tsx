@@ -56,7 +56,7 @@ export default function HeroAnimation({ text1, text2, speed = 100 }) {
   }, [typeStatus]);
 
   return (
-    <p className="text-3xl sm:text-[42px]">
+    <p className="text-xl sm:text-2xl lg:text-3xl">
       <span className=" sm:bg-gradient-to-r to-foreground bg-gradient-to-t to-70% from-muted-foreground bg-clip-text font-semibold">
         {displayText}
       </span>

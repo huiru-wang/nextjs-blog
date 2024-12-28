@@ -10,8 +10,8 @@ export default async function Page() {
 
     return (
         <>
-            <h1 className={`${press_start_2p.className} text-3xl font-bold mb-8`}>
-                Blog Posts
+            <h1 className={`${press_start_2p.className} text-3xl font-bold my-8`}>
+                Dev Posts
             </h1>
             <PostList initialPostMetadatas={postMetadatas} />
         </>
