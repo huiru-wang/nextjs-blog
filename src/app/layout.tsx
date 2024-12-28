@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Roboto_Mono } from "next/font/google";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 const roboto_mono = Roboto_Mono({ subsets: ["latin"] });
 
@@ -15,16 +16,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${roboto_mono.className} bg-background text-foreground`}>
+      <body className={`${roboto_mono.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <div className="mx-6 flex items-center justify-center">{children}</div>
-          <Footer />
+          <ParticlesBackground>
+            <Header />
+            <div className="mx-8 flex items-center justify-center">{children}</div>
+            <Footer />
+          </ParticlesBackground>
         </ThemeProvider>
       </body>
     </html>

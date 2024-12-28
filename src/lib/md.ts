@@ -13,9 +13,15 @@ const mdxBaseDir = path.join(process.cwd(), postParentDir);
  * @returns {content, frontmatter}
  */
 export const getMdxContentBySlug = (slug: string) => {
-    const mdxBaseDir = path.resolve(process.cwd(), postParentDir);
+    // 验证和清理 slug
+    if (!slug || !/^[a-zA-Z0-9\-_]+$/.test(slug)) {
+        throw new Error('Invalid slug');
+    }
     const targetMdx = slug?.split('_').join('/');
     const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}.md`);
+    if (!fs.existsSync(targetMdxPath)) {
+        throw new Error(`File not found: ${targetMdxPath}`);
+    }
     const postMdxContent = fs.readFileSync(targetMdxPath, 'utf8');
     return postMdxContent;
 }

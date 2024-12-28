@@ -1,7 +1,8 @@
 'use client'
-import PixelatedCard from "./PixelatedCard";
-import TagPanel from "./TagPanel";
+import PixelatedCard from "@/components/posts/PixelatedCard";
+import TagPanel from "@/components/posts/TagPanel";
 import { useMemo, useState } from "react";
+import MotionDivWrapper from "../MotionDivWrapper";
 
 export function PostList({ initialPostMetadatas }) {
 
@@ -23,20 +24,22 @@ export function PostList({ initialPostMetadatas }) {
     const frontmatters = useMemo(() => initialPostMetadatas.map(post => post.frontmatter), [initialPostMetadatas]);
 
     return (
-        <div className="max-w-4xl mx-auto">
-            <h1 className="text-3xl font-bold mb-8">
-                Blog Posts
-            </h1>
+        <div>
 
             <TagPanel frontmatters={frontmatters} onFilter={postMetadataFilter} />
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <MotionDivWrapper
+                initial={{ opacity: 0.3 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+            >
                 {
                     postMetadatas.map(({ slug, frontmatter }) => (
                         <PixelatedCard key={slug} slug={slug} frontmatter={frontmatter} />
                     ))
                 }
-            </div>
+            </MotionDivWrapper>
         </div>
     )
 }

@@ -1,25 +1,26 @@
 "use client";
 import Link from "next/link";
 import ModeToggle from "./ModeToggle";
+import { Press_Start_2P } from "next/font/google";
 
 // import GithubIcon from "@/public/icons/GithubIcon";
 // import SignInAndOut from "./SignIn";
 
+const press_start_2p = Press_Start_2P({ subsets: ["latin"], weight: '400' });
+
 const navigationItems = [
     { name: "Home", href: "/" },
-    { name: "Blog", href: "/posts" },
+    { name: "Posts", href: "/posts" },
     { name: "Projects", href: "/projects" },
 ];
 
 export default function Header() {
     return (
-        <header className="flex justify-between items-center px-4 py-2">
+        <header className="px-4 py-2">
             <div className="flex-grow flex justify-center">
                 <PixelatedNavbar />
             </div>
-            <div className="flex-shrink-0 mr-2 mb-2">
-                <ModeToggle />
-            </div>
+            <ModeToggle />
         </header>
     );
 }
@@ -27,7 +28,7 @@ export default function Header() {
 function PixelatedNavbar() {
 
     return (
-        <nav className="flex justify-center space-x-8 items-center m-4">
+        <nav className={`${press_start_2p.className} text-press-start-small flex justify-center space-x-8 items-center m-4`}>
             {
                 navigationItems.map(item => {
                     return (

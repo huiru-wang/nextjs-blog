@@ -1,8 +1,15 @@
+import Link from "next/link";
 
 export default function NotFound() {
     return (
-        <>
-            Not found
-        </>
+        <div className="flex flex-col gap-4">
+            <div>
+                Post Not found
+            </div>
+
+            <Link href="/posts">
+                Return Posts
+            </Link>
+        </div>
     )
 }

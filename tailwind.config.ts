@@ -10,6 +10,18 @@ export default {
   ],
   theme: {
     extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.foreground'),
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.foreground'),
+          },
+        },
+      }),
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -56,7 +68,13 @@ export default {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
-      }
+      },
+      fontSize: {
+        'press-start-small': '0.9rem',
+      },
+      fontFamily: {
+        press_start_2p: ['Press Start 2P', 'cursive'],
+      },
     }
   },
   darkMode: 'class',

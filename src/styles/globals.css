@@ -6,23 +6,26 @@
 
 @layer base {
   :root {
-    --background: #ebe2cd;
+    --background: #f7f6f3;
     --foreground: #171717;
-    --card: #d9d5de;
+    --card: #b2cddc;
+    /* 卡片背景色 */
     --card-foreground: #171717;
+    /* 卡片字体色 */
     --popover: #ffffff;
     --popover-foreground: #171717;
     --primary: #1a202c;
     --primary-foreground: #ffffff;
     --secondary: #ecd79b;
     --secondary-foreground: #171717;
+    /* 导航按钮字体色 */
     --muted: #edf2f7;
     --muted-foreground: #718096;
     --accent: #edf2f7;
     --accent-foreground: #1a202c;
     --destructive: #e53e3e;
     --destructive-foreground: #ffffff;
-    --border: #242628;
+    --border: #54636b;
     --input: #e2e8f0;
     --ring: #1a202c;
     --radius: 0.75rem;
@@ -40,23 +43,27 @@
   }
 
   .dark {
-    --background: #1a202c;
-    --foreground: #ffffff;
-    --card: #8b756e;
+    --background: #1a1e28;
+    --foreground: #f3e7e7;
+    --card: #806599ed;
+    /* 卡片背景色 */
     --card-foreground: #ffffff;
+    /* 卡片字体色 */
     --popover: #2d3748;
     --popover-foreground: #ffffff;
     --primary: #ffffff;
     --primary-foreground: #1a202c;
-    --secondary: #eb9c64;
+    --secondary: #818da1;
+    /* 导航按钮背景色 */
     --secondary-foreground: #ffffff;
+    /* 导航按钮字体色 */
     --muted: #4a5568;
     --muted-foreground: #cbd5e0;
     --accent: #4a5568;
     --accent-foreground: #ffffff;
     --destructive: #9b2c2c;
     --destructive-foreground: #ffffff;
-    --border: #4a5568;
+    --border: #4a484b;
     --input: #4a5568;
     --ring: #63b3ed;
 
@@ -88,7 +95,7 @@
 
 @layer components {
   .pixel-card {
-    @apply border-4 border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)] bg-[var(--card)];
+    @apply border-[3px] border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)] bg-[var(--card)];
     user-select: none;
     /* Prevent text selection */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -96,7 +103,7 @@
 
   .pixel-card:active {
     @apply shadow-[0_0_0_0_var(--border)];
-    transform: translate(4px, 4px);
+    transform: translate(6px, 6px);
   }
 
   .nav-item {
@@ -104,12 +111,8 @@
   }
 }
 
-.prose {
-  color: var(--foreground);
-}
-
-.dark .prose {
-  color: var(--foreground);
+.toc-item-h2 {
+  @apply ml-4
 }
 
 ::-webkit-scrollbar {

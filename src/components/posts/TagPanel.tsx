@@ -25,7 +25,7 @@ export default function TagPanel({ frontmatters, onFilter }: TagPanelProps) {
             {Object.entries(groupedByCategory).map(([category, tags]) => (
                 <div className="flex gap-4 m-2" key={category}>
                     <div
-                        className="border w-32 h-6 text-center cursor-pointer flex-shrink-0"
+                        className="hidden lg:block border w-32 h-6 text-center cursor-pointer flex-shrink-0"
                         onClick={() => onFilter(category, "")}
                     >
                         {category}

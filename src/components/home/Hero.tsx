@@ -1,5 +1,5 @@
-import HeroAnimation from "./HeroAnimation";
-import Socials from "./Socials";
+import HeroAnimation from "@/components/home/HeroAnimation";
+import Socials from "@/components/home/Socials";
 
 export default function Hero() {
     return (
