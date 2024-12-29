@@ -10,6 +10,9 @@ import PostContainer from "@/components/posts/PostContainer";
 import remarkGfm from 'remark-gfm';
 import PopupImage from "@/components/posts/PopupImg";
 import BackTop from "@/components/BackTop";
+import { press_start_2p } from "@/lib/fonts";
+import Link from "next/link";
+
 export async function generateMetadata({ params }) {
 
     const { slug } = await params;
@@ -39,11 +42,12 @@ export default async function Page({ params }) {
         }
 
         return (
-            <div>
+            <>
+                <Link href={"/posts"} className={`${press_start_2p.className} hidden sm:block`}>Back</Link>
                 <PostContainer content={content} frontmatter={frontmatter} />
                 <PostTableOfContent toc={toc} />
                 <BackTop />
-            </div>
+            </>
         );
     } catch (error) {
         console.error(error);

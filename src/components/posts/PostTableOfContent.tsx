@@ -8,9 +8,9 @@
 export default function PostTableOfContent(toc) {
 
     return (
-        <div className="hidden 2xl:block fixed right-24 top-36 w-64 p-4 border border-gray-200 rounded shadow-[4px_4px_0_0_var(--border)]">
+        <div className="hidden 2xl:block fixed right-14 top-36 w-64 p-4 border border-gray-200 rounded shadow-[4px_4px_0_0_var(--border)]">
             <nav>
-                <h2 className="text-lg font-bold mb-2">Table of Contents</h2>
+                <h2 className="text-base font-bold mb-2">Table of Contents</h2>
                 <TableOfContent props={toc.toc} />
             </nav>
         </div>
@@ -57,7 +57,7 @@ function TableOfContent({ props }) {
                     {props.children.map((item, index) => {
                         const header = item.value;
                         return (
-                            <a key={index} href={`#${header}`} className="block w-full whitespace-nowrap overflow-hidden text-ellipsis">
+                            <a key={index} href={`#${header}`} className="block whitespace-nowrap overflow-hidden text-ellipsis">
                                 {header}
                             </a>
                         );

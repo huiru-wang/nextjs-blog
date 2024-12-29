@@ -12,9 +12,8 @@
     --card-foreground: #171717;
     --project: #C4C4C4;
     --project-foreground: #171717;
-    --project-border: #171717;
-    --popover: #ffffff;
-    --popover-foreground: #171717;
+    --popover: #252d3b;
+    --popover-foreground: #C4C4C4;
     --primary: #1a202c;
     --primary-foreground: #ffffff;
     --secondary: #ecd79b;
@@ -43,11 +42,10 @@
   .dark {
     --background: #0d0d0e;
     --foreground: #f2eeee;
-    --card: #9f797e;
+    --card: #8d4ca7;
     --card-foreground: #ffffff;
     --project: #C4C4C4;
     --project-foreground: #f3e7e7;
-    --project-border: #9f9a9a;
     --popover: #2d3748;
     --popover-foreground: #ffffff;
     --primary: #ffffff;
@@ -58,7 +56,7 @@
     --muted-foreground: #cbd5e0;
     --accent: #4a5568;
     --accent-foreground: #ffffff;
-    --border: #4a484b;
+    --border: #9d9a9e;
     --input: #4a5568;
     --ring: #63b3ed;
 
@@ -90,10 +88,14 @@
 
 @layer components {
   .pixel-card {
-    @apply border-[3px] border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)] bg-[var(--card)] text-[var(--card-foreground)];
+    @apply border border-[var(--border)] bg-[var(--card)] text-[var(--card-foreground)];
     user-select: none;
     /* Prevent text selection */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: -4px 0 0 0 var(--border),
+      4px 0 1px 1px var(--border),
+      0 -4px 0 0 var(--border),
+      0 4px 1px 1px var(--border);
   }
 
   .pixel-card:active {
@@ -101,8 +103,12 @@
     transform: translate(6px, 6px);
   }
 
+  .pixel-card:hover {
+    /* TODO */
+  }
+
   .nav-item {
-    @apply bg-[var(--secondary)] text-[var(--secondary-foreground)] transition-colors px-4 py-2;
+    @apply border-[3px] border-[var(--border)] shadow-[3px_3px_2px_0_var(--border)] bg-[var(--secondary)] text-[var(--secondary-foreground)] transition-colors px-4 py-2;
   }
 }
 

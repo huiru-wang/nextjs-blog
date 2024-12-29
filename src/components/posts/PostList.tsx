@@ -9,6 +9,10 @@ export function PostList({ initialPostMetadatas }) {
 
     // 每次filter从全量数据中筛选
     const postMetadataFilter = (category: string, tag: string) => {
+        if (!category) {
+            setPostMetadatas(initialPostMetadatas);
+            return;
+        }
         const filtedItems = initialPostMetadatas
             .filter(post => post.frontmatter.category === category && (!tag || post.frontmatter.tags?.includes(tag)))
             .sort((a, b) => {
