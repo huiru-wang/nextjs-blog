@@ -8,23 +8,21 @@
   :root {
     --background: #f7f6f3;
     --foreground: #171717;
-    --card: #b2cddc;
-    /* 卡片背景色 */
+    --card: #C4C4C4;
     --card-foreground: #171717;
-    /* 卡片字体色 */
+    --project: #C4C4C4;
+    --project-foreground: #171717;
+    --project-border: #171717;
     --popover: #ffffff;
     --popover-foreground: #171717;
     --primary: #1a202c;
     --primary-foreground: #ffffff;
     --secondary: #ecd79b;
     --secondary-foreground: #171717;
-    /* 导航按钮字体色 */
     --muted: #edf2f7;
     --muted-foreground: #718096;
     --accent: #edf2f7;
     --accent-foreground: #1a202c;
-    --destructive: #e53e3e;
-    --destructive-foreground: #ffffff;
     --border: #54636b;
     --input: #e2e8f0;
     --ring: #1a202c;
@@ -43,26 +41,23 @@
   }
 
   .dark {
-    --background: #1a1e28;
-    --foreground: #f3e7e7;
-    --card: #806599ed;
-    /* 卡片背景色 */
+    --background: #0d0d0e;
+    --foreground: #f2eeee;
+    --card: #9f797e;
     --card-foreground: #ffffff;
-    /* 卡片字体色 */
+    --project: #C4C4C4;
+    --project-foreground: #f3e7e7;
+    --project-border: #9f9a9a;
     --popover: #2d3748;
     --popover-foreground: #ffffff;
     --primary: #ffffff;
     --primary-foreground: #1a202c;
     --secondary: #818da1;
-    /* 导航按钮背景色 */
     --secondary-foreground: #ffffff;
-    /* 导航按钮字体色 */
     --muted: #4a5568;
     --muted-foreground: #cbd5e0;
     --accent: #4a5568;
     --accent-foreground: #ffffff;
-    --destructive: #9b2c2c;
-    --destructive-foreground: #ffffff;
     --border: #4a484b;
     --input: #4a5568;
     --ring: #63b3ed;
@@ -86,7 +81,7 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
@@ -95,7 +90,7 @@
 
 @layer components {
   .pixel-card {
-    @apply border-[3px] border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)] bg-[var(--card)];
+    @apply border-[3px] border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)] bg-[var(--card)] text-[var(--card-foreground)];
     user-select: none;
     /* Prevent text selection */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -109,6 +104,10 @@
   .nav-item {
     @apply bg-[var(--secondary)] text-[var(--secondary-foreground)] transition-colors px-4 py-2;
   }
+}
+
+.katex-html {
+  @apply hidden
 }
 
 .toc-item-h2 {

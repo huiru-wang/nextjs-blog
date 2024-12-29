@@ -4,7 +4,7 @@ import BlurFade from "@/components/ui/blur-fade";
 
 export default function Home() {
   return (
-    <div className="max-w-4xl w-auto flex">
+    <div className="mx-4 w-auto flex">
       <section className="w-auto mb-20 flex items-center">
         <div>
           <BlurFade delay={0.1} inView>

@@ -9,5 +9,7 @@ export const metadata: Metadata = {
 export default function Layout({ children, }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <div className="max-w-4xl w-3/4">{children}</div>
+    return <div className="flex-1 mx-4 lg:flex-none flex flex-col justify-center w-3/4">
+        {children}
+    </div>
 }

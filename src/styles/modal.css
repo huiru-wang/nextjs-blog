@@ -1,0 +1,51 @@
+
+  .button-circles-wrap {
+    position: absolute;
+    top: 50%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: -10px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .button-circle {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border: 4px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  
+  .button-circle.close:hover {
+    background-color: #ff7c74;
+  }
+
+  .modal-thumbnail {
+    width: 100%;
+    height: 160px;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    border-bottom: 5px solid #000;
+    background-image: url("https://assets.website-files.com/5e87e737ee7085b9ba02c101/5e8d54c5f5d16a2534a4c8ac_placeholder.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    color: #fff;
+  }

@@ -6,7 +6,8 @@ publishedAt: 2023-01-01
 description: ethereum basic notes
 ---
 
-$1 Eth = 10^{3} Finney = 10^{9} GWei  = 10^{15} KWei = 10^{18} Wei$ 
+
+$ 1 Eth = 10^{3} Finney = 10^{9} GWei  = 10^{15} KWei = 10^{18} Wei $ 
 
 # Coin & Token
 

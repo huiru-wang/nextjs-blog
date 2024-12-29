@@ -2,11 +2,14 @@ import { getMdxContentBySlug } from "@/lib/md";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import rehypePrismPlus from 'rehype-prism-plus';
+import rehypeKatex from 'rehype-katex';
 import rehypeToc from 'rehype-toc';
+import remarkMath from 'remark-math';
 import PostTableOfContent from "@/components/posts/PostTableOfContent";
 import PostContainer from "@/components/posts/PostContainer";
 import remarkGfm from 'remark-gfm';
 import PopupImage from "@/components/posts/PopupImg";
+import BackTop from "@/components/BackTop";
 export async function generateMetadata({ params }) {
 
     const { slug } = await params;
@@ -39,6 +42,7 @@ export default async function Page({ params }) {
             <div>
                 <PostContainer content={content} frontmatter={frontmatter} />
                 <PostTableOfContent toc={toc} />
+                <BackTop />
             </div>
         );
     } catch (error) {
@@ -54,7 +58,7 @@ async function compile(content) {
         options: {
             parseFrontmatter: true,
             mdxOptions: {
-                remarkPlugins: [remarkGfm],
+                remarkPlugins: [remarkGfm, remarkMath],
                 rehypePlugins: [
                     [rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }],
                     [rehypeToc, {
@@ -64,6 +68,7 @@ async function compile(content) {
                             return false;
                         }
                     }],
+                    rehypeKatex
                 ],
             }
         },

@@ -1,13 +1,8 @@
-import { Inter, Lora, Source_Sans_3 } from 'next/font/google'
-import localFont from 'next/font/local';
+import { Roboto_Mono } from "next/font/google";
+import { Press_Start_2P } from "next/font/google";
 
-// define your variable fonts
-const inter = Inter()
-const lora = Lora()
-// define 2 weights of a non-variable font
-const sourceCodePro400 = Source_Sans_3({ weight: '400' })
-const sourceCodePro700 = Source_Sans_3({ weight: '700' })
-// define a custom local font where GreatVibes-Regular.ttf is stored in the styles folder
-const greatVibes = localFont({ src: '' })
+const roboto_mono = Roboto_Mono({ subsets: ["latin"] });
 
-export { inter, lora, sourceCodePro400, sourceCodePro700, greatVibes }
+const press_start_2p = Press_Start_2P({ subsets: ["latin"], weight: '400' });
+
+export { roboto_mono, press_start_2p }

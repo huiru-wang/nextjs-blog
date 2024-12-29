@@ -1,8 +1,6 @@
 import { PostList } from "@/components/posts/PostList";
 import { getPostMetadatas } from "@/lib/md";
-import { Press_Start_2P } from "next/font/google";
-
-const press_start_2p = Press_Start_2P({ subsets: ["latin"], weight: '400' });
+import { press_start_2p } from "@/lib/fonts";
 
 export default async function Page() {
 
@@ -13,6 +11,7 @@ export default async function Page() {
             <h1 className={`${press_start_2p.className} text-3xl font-bold my-8`}>
                 Dev Posts
             </h1>
+
             <PostList initialPostMetadatas={postMetadatas} />
         </>
     );
