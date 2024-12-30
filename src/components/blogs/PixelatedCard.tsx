@@ -5,7 +5,7 @@ export default function PixelatedCard({ slug, frontmatter }) {
     const { title, description, publishedAt } = frontmatter;
 
     return (
-        <Link href={`/posts/${slug}`}>
+        <Link href={`/blogs/${slug}`}>
             <div className="pixel-card p-4 cursor-pointer">
                 <h2 className="text-xl font-bold truncate mb-2">{title}</h2>
                 <p className="text-sm truncate">{description}</p>

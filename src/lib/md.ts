@@ -4,26 +4,22 @@ import path from 'path';
 import rehypePrismPlus from 'rehype-prism-plus';
 import { Frontmatter } from "./types";
 
-const postParentDir = "content";
+const blogParentDir = process.env.BLOG_DIR || "blogs";
 
 const separator = path.sep;
 
-const mdxBaseDir = path.join(process.cwd(), postParentDir);
+const mdxBaseDir = path.join(process.cwd(), blogParentDir);
 
 /**
  * 根据slug读取并解析md、mdx
  * 如文件位置为：content/fold1/fold2/hello.mdx
- * 则slug为：posts/fold1_fold2_hello.mdx
+ * 则slug为：blogs/fold1_fold2_hello.mdx
  * 解析时将"_"替换为"/"，找到对应的文件
  * 
  * @param slug slug
  * @returns {content, frontmatter}
  */
 export const getMdxContentBySlug = (slug: string) => {
-    // slug: .md .mdx文件
-    if (!slug || !/^[a-zA-Z0-9\-_]+\.mdx?$/.test(slug)) {
-        throw new Error('Invalid slug');
-    }
     const targetMdx = slug?.split('_').join('/');
     const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
     console.log(targetMdxPath);
@@ -37,11 +33,11 @@ export const getMdxContentBySlug = (slug: string) => {
 /**
  * 读取本地md、mdx文件的frontmatter并组装slug
  * 支持多级目录
- * slug拼接方式：按照文件夹的层级结构，如 posts/fold1_fold2_hello.mdx
+ * slug拼接方式：按照文件夹的层级结构，如 blogs/fold1_fold2_hello.mdx
  * 
  * @returns {frontmatter, slug}[]
  */
-export const getPostMetadatas = async (baseDir: string = mdxBaseDir) => {
+export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
     const result: { slug: string, frontmatter: Frontmatter }[] = [];
     const readDirRecursively = async (currentDir) => {
         const files = await fs.promises.readdir(currentDir);
@@ -51,14 +47,18 @@ export const getPostMetadatas = async (baseDir: string = mdxBaseDir) => {
             if (stats.isDirectory()) {
                 await readDirRecursively(filePath);
             } else if (stats.isFile() && (path.extname(file) === '.md' || path.extname(file) === '.mdx')) {
-                const fileContent = await fs.promises.readFile(filePath, 'utf8');
-                const { frontmatter } = await parseMdx(fileContent);
-                const relativePath = path.relative(baseDir, filePath);
-                const slug = relativePath.replaceAll(separator, '_');
-                result.push({
-                    slug: slug,
-                    frontmatter: frontmatter,
-                });
+                try {
+                    const fileContent = await fs.promises.readFile(filePath, 'utf8');
+                    const { frontmatter } = await parseMdx(fileContent);
+                    const relativePath = path.relative(baseDir, filePath);
+                    const slug = relativePath.replaceAll(separator, '_');
+                    result.push({
+                        slug: slug,
+                        frontmatter: frontmatter,
+                    });
+                } catch (error) {
+                    console.error(`Error parsing file: ${filePath}`, error);
+                }
             }
         }
     };

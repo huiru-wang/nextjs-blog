@@ -22,7 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           disableTransitionOnChange
         >
           <ParticlesBackground>
-            <div className="flex flex-col items-center pt-7 mx-auto max-w-3xl sm:max-w-4xl lg:max-w-5xl xl:max-w-6xl min-h-svh">
+            <div className="flex flex-col items-center pt-2 mx-auto max-w-3xl sm:max-w-4xl lg:max-w-5xl xl:max-w-6xl min-h-svh">
               <Header />
               <div className="w-full">{children}</div>
               <Footer />

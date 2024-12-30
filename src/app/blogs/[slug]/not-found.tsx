@@ -7,8 +7,8 @@ export default function NotFound() {
                 Post Not found
             </div>
 
-            <Link href="/posts">
-                Return Posts
+            <Link href="/blogs">
+                Return Blogs
             </Link>
         </div>
     )

@@ -5,10 +5,10 @@ import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeKatex from 'rehype-katex';
 import rehypeToc from 'rehype-toc';
 import remarkMath from 'remark-math';
-import PostTableOfContent from "@/components/posts/PostTableOfContent";
-import PostContainer from "@/components/posts/PostContainer";
+import BlogTableOfContent from "@/components/blogs/PostTableOfContent";
+import BlogContainer from "@/components/blogs/BlogContainer";
 import remarkGfm from 'remark-gfm';
-import PopupImage from "@/components/posts/PopupImg";
+import PopupImage from "@/components/blogs/PopupImg";
 import BackTop from "@/components/BackTop";
 import { press_start_2p } from "@/lib/fonts";
 import Link from "next/link";
@@ -43,9 +43,9 @@ export default async function Page({ params }) {
 
         return (
             <>
-                <Link href={"/posts"} className={`${press_start_2p.className} hidden sm:block`}>Back</Link>
-                <PostContainer content={content} frontmatter={frontmatter} />
-                <PostTableOfContent toc={toc} />
+                <Link href={"/blogs"} className={`${press_start_2p.className} hidden sm:block`}>Back</Link>
+                <BlogContainer content={content} frontmatter={frontmatter} />
+                <BlogTableOfContent toc={toc} />
                 <BackTop />
             </>
         );

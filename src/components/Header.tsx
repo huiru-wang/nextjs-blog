@@ -9,13 +9,13 @@ import { press_start_2p } from "@/lib/fonts";
 
 const navigationItems = [
     { name: "Home", href: "/" },
-    { name: "Posts", href: "/posts" },
+    { name: "Blogs", href: "/blogs" },
     { name: "Projects", href: "/projects" },
 ];
 
 export default function Header() {
     return (
-        <header className="w-full px-4 py-2 mb-8 flex items-center">
+        <header className="w-full px-4 py-2 mb-4 flex items-center">
             <Avatar />
             <div className="flex-grow flex justify-center">
                 <PixelatedNavbar />
@@ -34,7 +34,7 @@ function PixelatedNavbar() {
                     return (
                         <div key={item.name}>
                             <Link href={item.href}>
-                                <div className="nav-item sm:w-36 text-center">
+                                <div className="nav-item sm:w-36 text-center text-black">
                                     {item.name}
                                 </div>
                             </Link>

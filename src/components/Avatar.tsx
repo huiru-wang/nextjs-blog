@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import avatarImg from "@/public/images/avatar.webp";
+import avatarImg from "@/public/widgets/avatar.webp";
 
 export default function Avatar() {
   return (

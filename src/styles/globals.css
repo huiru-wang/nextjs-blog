@@ -50,7 +50,7 @@
     --popover-foreground: #ffffff;
     --primary: #ffffff;
     --primary-foreground: #1a202c;
-    --secondary: #818da1;
+    --secondary: #ecd79b;
     --secondary-foreground: #ffffff;
     --muted: #4a5568;
     --muted-foreground: #cbd5e0;
@@ -110,6 +110,14 @@
   .nav-item {
     @apply border-[3px] border-[var(--border)] shadow-[3px_3px_2px_0_var(--border)] bg-[var(--secondary)] text-[var(--secondary-foreground)] transition-colors px-4 py-2;
   }
+}
+
+.text-shadow{
+  text-shadow: 1px 1px 4px var(--foreground);
+}
+
+.particle-z {
+  z-index: -1;
 }
 
 .katex-html {
