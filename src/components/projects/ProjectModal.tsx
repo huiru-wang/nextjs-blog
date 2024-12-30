@@ -1,5 +1,4 @@
 import React from 'react';
-import '@/styles/modal.css'
 import Link from 'next/link';
 import BlurFade from '../ui/blur-fade';
 
@@ -19,7 +18,7 @@ export default function ProjectModal({ redirect, img, title, description }: Proj
         >
             <div className="bg-[var(--project)] text-black flex flex-col border-4 border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)]">
                 <div className="relative p-2 border-b-4 border-black font-semibold text-center">
-                    <div className="button-circles-wrap">
+                    <div className="absolute top-0.5 flex items-center mt-2">
                         <div className="w-5 h-5 mr-2 border-4 border-black bg-orange-300 rounded-full"></div>
                         <div className="w-5 h-5 mr-2 border-4 border-black bg-green-500 rounded-full"></div>
                         <div className="w-5 h-5 mr-2 border-4 border-black bg-red-400 rounded-full"></div>
