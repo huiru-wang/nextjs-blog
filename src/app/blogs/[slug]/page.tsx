@@ -46,7 +46,7 @@ export default async function Page({ params }) {
                 <Link href={"/blogs"} className={`${press_start_2p.className} hidden sm:block`}>Back</Link>
                 <BlogContainer content={content} frontmatter={frontmatter} />
                 <BlogTableOfContent toc={toc} />
-                <BackTop />
+                <BackTop imgList={["1", "2", "3", "4", "5", "6"]} />
             </>
         );
     } catch (error) {

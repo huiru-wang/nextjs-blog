@@ -13,7 +13,7 @@ export default function ProjectModal({ redirect, img, title, description }: Proj
 
     return (
         <BlurFade
-            delay={0.1}
+            delay={0.2}
             inView
         >
             <div className="bg-[var(--project)] text-black flex flex-col border-4 border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)]">

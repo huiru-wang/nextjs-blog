@@ -1,9 +1,16 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
-const WidgetImg = ({ src }) => {
+interface WidgetImgProps {
+    src: StaticImageData;
+    position: 'left' | 'right';
+}
+
+const WidgetImg = ({ src }: WidgetImgProps) => {
+
+
     return (
-        <div className="fixed bottom-0 left-0 p-4">
+        <div className="fixed bottom-0 left-5 p-4">
             <Image src={src} className="w-24 h-24 object-cover" alt="Fixed Image" />
         </div>
     );

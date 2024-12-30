@@ -2,65 +2,40 @@
 
 import React, { useState, useEffect } from "react";
 
-export default function HeroAnimation({ text1, text2, speed = 100 }) {
-  const [displayText, setDisplayText] = useState(text1);
-  const [currentIndex, setCurrentIndex] = useState(text1.length);
-  const [typeStatus, setTypeStatus] = useState("typing"); // To track typing vs deleting
-  const [isText1, setIsText1] = useState(true); // Display text1 vs text2
+export default function HeroAnimation({ text, speed = 100 }) {
+  const [displayText, setDisplayText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true); // For blinking cursor
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (
-        typeStatus === "typing" &&
-        currentIndex < (isText1 ? text1.length : text2.length)
-      ) {
+      if (currentIndex < text.length) {
         // Typing forward
-        setDisplayText(
-          (prev) => prev + (isText1 ? text1[currentIndex] : text2[currentIndex])
-        );
+        setDisplayText((prev) => prev + text[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
-      } else if (typeStatus === "deleting" && currentIndex > 0) {
-        // Deleting backward
-        setDisplayText((prev) => prev.slice(0, -1));
-        setCurrentIndex((prev) => prev - 1);
-      } else if (
-        typeStatus === "typing" &&
-        currentIndex === (isText1 ? text1.length : text2.length)
-      ) {
-        // Switch to deleting mode
-        // setTypeStatus("waiting");
-        setTimeout(() => {
-          setTypeStatus("deleting");
-        }, 2000); // Pause before deleting
-      } else if (typeStatus === "deleting" && currentIndex === 0) {
-        // Switch to typing mode
-        // setTypeStatus("waiting");
-        setTimeout(() => {
-          setIsText1((isText1) => !isText1);
-          setTypeStatus("typing");
-        }, 500);
+      } else {
+        // Stop blinking cursor after text is fully displayed
+        setShowCursor(false);
       }
     }, speed);
 
     return () => clearTimeout(timeout); // Cleanup timeout
-  }, [currentIndex, typeStatus, text1, text2, speed, isText1]);
+  }, [currentIndex, text, speed]);
 
   // Cursor blinking effect
   useEffect(() => {
-    // if (typeStatus !== "waiting") return;
+    if (!showCursor) return;
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
     }, 500);
     return () => clearInterval(cursorInterval);
-  }, [typeStatus]);
+  }, [showCursor]);
 
   return (
     <p className="text-xl sm:text-2xl lg:text-3xl">
-      <span className=" sm:bg-gradient-to-r to-foreground bg-gradient-to-t to-70% from-muted-foreground bg-clip-text font-semibold">
+      <span className="sm:bg-gradient-to-r to-foreground bg-gradient-to-t to-70% from-muted-foreground bg-clip-text font-semibold">
         {displayText}
       </span>
-
       <span className={`${showCursor ? "text-muted-foreground" : "hidden"}`}>
         |
       </span>
