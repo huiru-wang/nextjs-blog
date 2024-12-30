@@ -1,14 +1,12 @@
 
 # Nextjs Blog
 
-## TODO
+`.env.example`修改为`.env`
 
-1. BackToTop UI component
+```shell
+pnpm i
 
-2. Tag 筛选，提示选中的tag，再次点击取消选中
+pnpm dev
+```
 
-3. 个人技能展示
 
-4. Project 展示 组件
-
-5. 留言板
