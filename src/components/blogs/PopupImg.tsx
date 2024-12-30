@@ -14,13 +14,13 @@ export default function PopupImage({ src, alt }) {
             <img
                 src={src}
                 alt={alt}
-                className="cursor-pointer hover:opacity-90"
+                className="cursor-pointer"
                 onClick={togglePreview}
             />
 
             {showImage && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 cursor-pointer"
+                    className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 cursor-pointer"
                     onClick={togglePreview}
                 >
                     <div className="max-w-[90vw] max-h-[90vh]">

@@ -134,7 +134,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-[var(--muted)];
+  @apply bg-[var(--muted)] rounded-sm;
 }
 
 ::-webkit-scrollbar-thumb {

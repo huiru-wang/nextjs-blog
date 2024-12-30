@@ -12,6 +12,7 @@ import PopupImage from "@/components/blogs/PopupImg";
 import BackTop from "@/components/BackTop";
 import { press_start_2p } from "@/lib/fonts";
 import Link from "next/link";
+import CollapsibleCode from "@/components/blogs/CollapsibleCode";
 
 export async function generateMetadata({ params }) {
 
@@ -78,10 +79,14 @@ async function compile(content) {
         },
         components: {
             // 需要目录跳转的标签，加上id，当前只需要2级
-            h1: (props) => <h1 id={`${props.children}`}>{props.children}</h1>,
-            h2: (props) => <h2 id={`${props.children}`}>{props.children}</h2>,
+            h1: (props) => <h1 className="my-4" id={`${props.children}`}>{props.children}</h1>,
+            h2: (props) => <h2 className="my-4" id={`${props.children}`}>{props.children}</h2>,
+            h3: (props) => <h3 className="my-4">{props.children}</h3>,
+            h4: (props) => <h4 className="my-4">{props.children}</h4>,
             img: (props) => <PopupImage {...props} />,
+            pre: (props) => <CollapsibleCode>{props.children}</CollapsibleCode>,
         }
     });
     return { ...result, toc }
 }
+
