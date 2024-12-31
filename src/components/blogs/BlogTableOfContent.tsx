@@ -5,7 +5,7 @@
  * @param toc 嵌套目录
  * @returns 目录组件
  */
-export default function PostTableOfContent(toc) {
+export default function BlogTableOfContent(toc) {
 
     return (
         <div className="hidden 2xl:block fixed right-14 top-36 w-64 p-4 border border-gray-200 rounded shadow-[4px_4px_0_0_var(--border)]">

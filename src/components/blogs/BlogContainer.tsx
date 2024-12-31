@@ -4,9 +4,9 @@ import ScrollProgress from "../ui/scroll-progress";
 
 export default function BlogContainer({ content, frontmatter }) {
     return (
-        <section className="flex flex-col items-center bg-[var(--background])]">
+        <section className="w-full flex flex-col items-center bg-[var(--background])]">
             <h1 className="text-3xl font-bold text-center">{frontmatter?.title}</h1>
-            <article className="max-w-sm sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl flex flex-col items-center justify-start m-4 gap-8">
+            <article className="max-w-md sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl flex flex-col items-center justify-start m-4 gap-8">
                 <div className="border-dashed border-2 border-gray-400 p-2">
                     {frontmatter?.description}
                 </div>

@@ -36,7 +36,7 @@ export default function BlogList({ initialPostMetadatas }) {
                 {
                     blogMetadatas.map(({ slug, frontmatter }, index) => (
                         <BlurFade
-                            delay={index * 0.1}
+                            delay={index * 0.05}
                             inView key={slug}
                             className="w-full">
                             <PixelatedCard slug={slug} frontmatter={frontmatter} />

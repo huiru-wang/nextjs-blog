@@ -14,7 +14,7 @@ export default function PopupImage({ src, alt }) {
             <img
                 src={src}
                 alt={alt}
-                className="cursor-pointer"
+                className="cursor-pointer border border-[var(--border)] shadow-[2px_2px_2px_0_var(--border)] "
                 onClick={togglePreview}
             />
 

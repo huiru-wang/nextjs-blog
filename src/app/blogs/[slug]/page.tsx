@@ -5,7 +5,7 @@ import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeKatex from 'rehype-katex';
 import rehypeToc from 'rehype-toc';
 import remarkMath from 'remark-math';
-import BlogTableOfContent from "@/components/blogs/PostTableOfContent";
+import BlogTableOfContent from "@/components/blogs/BlogTableOfContent";
 import BlogContainer from "@/components/blogs/BlogContainer";
 import remarkGfm from 'remark-gfm';
 import PopupImage from "@/components/blogs/PopupImg";
@@ -83,6 +83,8 @@ async function compile(content) {
             h2: (props) => <h2 className="my-4" id={`${props.children}`}>{props.children}</h2>,
             h3: (props) => <h3 className="my-4">{props.children}</h3>,
             h4: (props) => <h4 className="my-4">{props.children}</h4>,
+            ol: (props) => <ol className="m-2 my-0">{props.children}</ol>,
+            li: (props) => <li className="m-0">{props.children}</li>,
             img: (props) => <PopupImage {...props} />,
             pre: (props) => <CollapsibleCode>{props.children}</CollapsibleCode>,
         }

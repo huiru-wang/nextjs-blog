@@ -9,11 +9,11 @@ import Gengar from "@/public/widgets/gengar.png";
 export default function Home() {
   return (
     <div className="w-full flex flex-col justify-center">
-      <section className="w-auto my-20 mx-4 flex items-center">
+      <section className="w-auto my-5 sm:my-20 mx-4 flex items-center">
         <div>
           <BlurFade delay={0.1} inView>
             <h1 className="mb-8 text-5xl">
-              Hi there, I&apos;m Robin 👋
+              I&apos;m Robin 👋
             </h1>
           </BlurFade>
 
@@ -44,9 +44,6 @@ export default function Home() {
         >
           <TeckSkillCard />
           <LanguageCard />
-          <div className="pixel-div">
-            hello
-          </div>
         </BlurFade>
       </section>
 

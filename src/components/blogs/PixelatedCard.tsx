@@ -1,15 +1,23 @@
 import Link from "next/link";
 
+const descriptionStyle: React.CSSProperties = {
+    display: '-webkit-box',
+    WebkitBoxOrient: 'vertical',
+    WebkitLineClamp: 2,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+};
+
 export default function PixelatedCard({ slug, frontmatter }) {
 
     const { title, description, publishedAt } = frontmatter;
 
     return (
         <Link href={`/blogs/${slug}`}>
-            <div className="pixel-card p-4 cursor-pointer">
+            <div className="pixel-card relative p-4 cursor-pointer h-32">
                 <h2 className="text-xl font-bold truncate mb-2">{title}</h2>
-                <p className="text-sm truncate">{description}</p>
-                <time className="block mt-2 text-xs">{publishedAt}</time>
+                <p className="text-sm" style={descriptionStyle}>{description}</p>
+                <time className="absolute bottom-3 block mt-2 text-xs">{publishedAt}</time>
             </div>
         </Link>
     )
