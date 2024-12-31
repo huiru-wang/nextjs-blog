@@ -42,7 +42,7 @@
   .dark {
     --background: #0d0d0e;
     --foreground: #f2eeee;
-    --card: #8d4ca7;
+    --card: #333344;
     --card-foreground: #ffffff;
     --project: #C4C4C4;
     --project-foreground: #f3e7e7;
@@ -50,7 +50,7 @@
     --popover-foreground: #ffffff;
     --primary: #ffffff;
     --primary-foreground: #1a202c;
-    --secondary: #ecd79b;
+    --secondary: #FDCA5F;
     --secondary-foreground: #ffffff;
     --muted: #4a5568;
     --muted-foreground: #cbd5e0;
@@ -114,7 +114,7 @@
 }
 
 .text-shadow{
-  text-shadow: 1px 1px 4px var(--foreground);
+  text-shadow: 1px 1px 2px var(--foreground);
 }
 
 .particle-z {

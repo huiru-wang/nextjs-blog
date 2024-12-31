@@ -3,6 +3,7 @@ import Link from "next/link";
 import ModeToggle from "./ModeToggle";
 import Avatar from "./Avatar";
 import { press_start_2p } from "@/lib/fonts";
+import GithubIcon from "./icons/GithubIcon";
 
 // import GithubIcon from "@/public/icons/GithubIcon";
 // import SignInAndOut from "./SignIn";
@@ -20,6 +21,13 @@ export default function Header() {
             <div className="flex-grow flex justify-center">
                 <PixelatedNavbar />
             </div>
+            <Link
+                href="https://github.com/huiru-wang/nextjs-blog"
+                target="_blank"
+                className="opacity-80 hover:opacity-100"
+            >
+                <GithubIcon />
+            </Link>
             <ModeToggle />
         </header>
     );

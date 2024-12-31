@@ -13,21 +13,19 @@ export default function Home() {
         <div>
           <BlurFade delay={0.1} inView>
             <h1 className="mb-8 text-5xl">
-              I&apos;m Robin 👋
+              I&apos;m 霄汉 👋
             </h1>
           </BlurFade>
 
           <BlurFade delay={0.2} inView>
             <div className="mb-8 h-10">
-              <HeroAnimation text={"<Web developer />"} />
+              <HeroAnimation text1={"<Web developer />"} text2={"<Backend developer />"} />
             </div>
           </BlurFade>
 
           <BlurFade delay={0.3} inView>
-            <div className="mb-8 text-2xl">
-              I&apos;m a backend developer, currently working at
-              <p className="mx-2 inline-block text-orange-500">@alibaba DingTalk</p>.
-              <p>Striving to become a Full Stack engineer </p>
+            <div className="mb-8 text-xl sm:text-2xl">
+              你好，我是霄汉，一个后端程序员，喜欢写代码，喜欢学习新技术，正在努力成为全栈工程师。对web3感兴趣，Feel free to reach out to me!
             </div>
           </BlurFade>
 

@@ -8,11 +8,10 @@ description: This is a description.
 
 # How to set up a new Next.js project
 
-
 ## System requirements
 
 - [Node.js](https://nodejs.org/) 18.18 or later.
-- macOS, Windows (including WSL), and Linux are supported.
+- `macOS`, `Windows` (including WSL), and `Linux` are supported.
 
 
 ## Automatic installation
@@ -36,7 +35,7 @@ Would you like to customize the import alias (`@/*` by default)? No / Yes
 What import alias would you like configured? @/*
 ```
 
-Open your package.json file and add the following scripts:
+> Open your package.json file and add the following scripts:
 ```json {3,5}
 {
   "scripts": {
