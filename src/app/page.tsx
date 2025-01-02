@@ -25,7 +25,8 @@ export default function Home() {
 
           <BlurFade delay={0.3} inView>
             <div className="mb-8 text-xl sm:text-2xl">
-              你好，我是霄汉，一个后端程序员，喜欢写代码，喜欢学习新技术，正在努力成为全栈工程师。对web3感兴趣，Feel free to reach out to me!
+              一个后端程序员，喜欢写代码，喜欢学习新技术，正在努力成为全栈工程师。对web3感兴趣
+              <p className="mt-4 funcy-borad">Feel free to reach out to me!</p>
             </div>
           </BlurFade>
 

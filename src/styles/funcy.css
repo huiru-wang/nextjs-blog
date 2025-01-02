@@ -1,0 +1,26 @@
+.funcy-borad {
+  background-image: linear-gradient(
+    to right,
+    #f69165,
+    #e1a77a,
+    #c8d85d,
+    #54bb8d,
+    #539fc8,
+    #9b70db,
+    #d95eb4,
+    #dbae70
+  );
+  background-size: 200%;
+  background-clip: text;
+  color: transparent;
+  animation: colorFlow 5s linear infinite;
+}
+
+@keyframes colorFlow {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 200%;
+    }
+}

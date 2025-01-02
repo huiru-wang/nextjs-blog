@@ -20,7 +20,7 @@ export default function ParticlesBackground({ children }) {
             {children}
             <Particles
                 className="absolute inset-0 particle-z"
-                quantity={50}
+                quantity={80}
                 staticity={50}
                 ease={50}
                 size={0.4}

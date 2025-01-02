@@ -3,7 +3,8 @@ import { getBlogMetadatas } from "@/lib/md";
 import { press_start_2p } from "@/lib/fonts";
 import Image from "next/image";
 import Pokemon from '@/public/widgets/pokeball.png';
-
+import Sanji from "@/public/widgets/sanji.png";
+import WidgetImg from "@/components/WidgetImg";
 export default async function Page() {
 
     const blogMetadatas = await getBlogMetadatas();
@@ -18,6 +19,8 @@ export default async function Page() {
             </div>
 
             <BlogList initialPostMetadatas={blogMetadatas} />
+
+            <WidgetImg src={Sanji} position="right" />
         </div>
     );
 }

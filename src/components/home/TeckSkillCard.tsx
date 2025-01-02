@@ -1,3 +1,4 @@
+import '@/styles/funcy.css';
 import CSSIcon from "../icons/CSSIcon";
 import HtmlIcon from "../icons/HtmlIcon";
 import JavaIcon from "../icons/JavaIcon";
