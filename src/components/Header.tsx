@@ -4,6 +4,7 @@ import ModeToggle from "./ModeToggle";
 import Avatar from "./Avatar";
 import { press_start_2p } from "@/lib/fonts";
 import GithubIcon from "./icons/GithubIcon";
+import { motion } from "framer-motion";
 
 // import GithubIcon from "@/public/icons/GithubIcon";
 // import SignInAndOut from "./SignIn";
@@ -16,11 +17,12 @@ const navigationItems = [
 
 export default function Header() {
     return (
-        <header className="w-full px-4 py-2 mb-4 flex items-center">
+        <motion.div
+            initial={{ y: 0, x: -50, opacity: 0 }}
+            animate={{ y: 0, x: 0, opacity: 1 }}
+            className="w-full m-4 flex items-center">
             <Avatar />
-            <div className="flex-grow flex justify-center">
-                <PixelatedNavbar />
-            </div>
+            <PixelatedNavbar />
             <Link
                 href="https://github.com/huiru-wang/nextjs-blog"
                 target="_blank"
@@ -29,20 +31,20 @@ export default function Header() {
                 <GithubIcon />
             </Link>
             <ModeToggle />
-        </header>
+        </motion.div>
     );
 }
 
 function PixelatedNavbar() {
 
     return (
-        <nav className={`${press_start_2p.className} text-[0.5rem] space-x-3 sm:text-[0.9rem] flex justify-center sm:space-x-12 items-center`}>
+        <nav className={`${press_start_2p.className} flex-grow flex justify-center items-center text-[0.5rem] sm:text-[0.8rem] space-x-3 sm:space-x-12`}>
             {
                 navigationItems.map(item => {
                     return (
                         <div key={item.name}>
                             <Link href={item.href}>
-                                <div className="nav-item sm:w-36 text-center text-black">
+                                <div className="nav-item text-center text-black">
                                     {item.name}
                                 </div>
                             </Link>

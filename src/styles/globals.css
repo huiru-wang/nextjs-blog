@@ -50,7 +50,7 @@
     --popover-foreground: #ffffff;
     --primary: #ffffff;
     --primary-foreground: #1a202c;
-    --secondary: #FDCA5F;
+    --secondary: #ab82d6;
     --secondary-foreground: #ffffff;
     --muted: #4a5568;
     --muted-foreground: #cbd5e0;
@@ -110,10 +110,10 @@
   .nav-item:active {
     @apply shadow-[0_0_0_0_var(--border)];
     transform: translate(6px, 6px);
-    }
+  }
 }
 
-.text-shadow{
+.text-shadow {
   text-shadow: 1px 1px 2px var(--foreground);
 }
 

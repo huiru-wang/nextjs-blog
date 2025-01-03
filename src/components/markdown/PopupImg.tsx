@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function PopupImage({ src, alt }) {
@@ -11,7 +12,7 @@ export default function PopupImage({ src, alt }) {
 
     return (
         <>
-            <img
+            <Image
                 src={src}
                 alt={alt}
                 className="cursor-pointer border border-[var(--border)] shadow-[2px_2px_2px_0_var(--border)] "
@@ -24,7 +25,7 @@ export default function PopupImage({ src, alt }) {
                     onClick={togglePreview}
                 >
                     <div className="max-w-[90vw] max-h-[90vh]">
-                        <img
+                        <Image
                             src={src}
                             alt={alt}
                             className="max-w-full max-h-[90vh] object-contain"

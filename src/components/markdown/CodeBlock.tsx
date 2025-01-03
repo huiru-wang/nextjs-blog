@@ -29,17 +29,21 @@ export default function CodeBlock({ children }) {
   const copyCode = async () => {
     if (codeRef.current) {
       const code = codeRef.current.textContent;
-      if (code) {
-        await navigator.clipboard.writeText(code);
-        setIsCopied(true);
-        setTimeout(() => setIsCopied(false), 2000);
+      if (code && navigator.clipboard) {
+        try {
+          await navigator.clipboard.writeText(code);
+          setIsCopied(true);
+          setTimeout(() => setIsCopied(false), 2000);
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
       }
     }
   }
 
   return (
     <div className="relative bg-black border rounded-sm border-[var(--border)] shadow-[2px_2px_2px_0_var(--border)]">
-      <div className="absolute top-2 right-2 flex space-x-2">
+      <div className="absolute top-2 right-2 flex">
         <button
           onClick={copyCode}
           className="p-1 rounded text-white focus:outline-none"

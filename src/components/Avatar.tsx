@@ -7,8 +7,8 @@ export default function Avatar() {
     <div className="hidden sm:block">
       <Image
         src={avatarImg}
-        width={70}
-        height={70}
+        width={50}
+        height={50}
         alt="avatar"
         className={`duration-500 rounded-full hover:opacity-90`}
         unoptimized

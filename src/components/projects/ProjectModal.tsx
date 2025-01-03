@@ -16,7 +16,7 @@ export default function ProjectModal({ redirect, img, title, description }: Proj
             delay={0.2}
             inView
         >
-            <div className="bg-[var(--project)] text-black flex flex-col border-4 border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)]">
+            <div className="flex flex-col bg-[var(--project)] text-black border-4 border-[var(--border)] shadow-[4px_4px_2px_0_var(--border)]">
                 <div className="relative p-2 border-b-4 border-black font-semibold text-center">
                     <div className="absolute top-0.5 flex items-center mt-2">
                         <div className="w-5 h-5 mr-2 border-4 border-black bg-orange-300 rounded-full"></div>
@@ -36,7 +36,7 @@ export default function ProjectModal({ redirect, img, title, description }: Proj
                         {description}
                     </p>
                     <Link
-                        className="border-4 border-[var(--border)] p-2 mt-4 hover:bg-black hover:text-white"
+                        className="border-4 border-black p-2 mt-4 hover:bg-black hover:text-white"
                         href={redirect}
                     >
                         View project

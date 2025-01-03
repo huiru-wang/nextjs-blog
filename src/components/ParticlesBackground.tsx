@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import Particles from "@/components/ui/particles";
 
-export default function ParticlesBackground({ children }) {
+export default function ParticlesBackground() {
 
     const { resolvedTheme } = useTheme();
 
@@ -17,7 +17,6 @@ export default function ParticlesBackground({ children }) {
 
     return (
         <>
-            {children}
             <Particles
                 className="absolute inset-0 particle-z"
                 quantity={80}

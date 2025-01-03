@@ -68,6 +68,12 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
         }
     };
     await readDirRecursively(baseDir);
+    // 降序
+    result.sort((a, b) => {
+        const dateA = new Date(a.frontmatter.publishedAt || 0).getTime();
+        const dateB = new Date(b.frontmatter.publishedAt || 0).getTime();
+        return dateB - dateA;
+    });
     return result;
 }
 

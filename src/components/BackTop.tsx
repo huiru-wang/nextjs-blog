@@ -1,21 +1,18 @@
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-const BackTop = ({ imgList }) => {
+const imgFileNameList = ["1", "2", "3", "4", "5", "6"];
 
-    const [imgPath, setImgPath] = useState("/widgets/3.png")
+const getRandomImage = () => {
+    const randomIndex = Math.floor(Math.random() * imgFileNameList.length);
+    const imgFileName = imgFileNameList[randomIndex] + ".png";
+    return `/widgets/${imgFileName}`;
+};
 
-    useEffect(() => {
-        const imagePath = getRandomImage();
-        setImgPath(imagePath);
-    }, [imgList])
+const BackTop = () => {
 
-    const getRandomImage = () => {
-        const randomIndex = Math.floor(Math.random() * imgList.length);
-        const imgFileName = imgList[randomIndex] + ".png";
-        return `/widgets/${imgFileName}`;
-    };
+    const [imgPath, setImgPath] = useState("/widgets/3.png");
 
     const scrollToTop = () => {
         window.scrollTo({

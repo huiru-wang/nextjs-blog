@@ -3,6 +3,8 @@ import PixelatedCard from "@/components/blogs/PixelatedCard";
 import TagPanel from "@/components/blogs/TagPanel";
 import { useMemo, useState } from "react";
 import BlurFade from "../ui/blur-fade";
+
+
 export default function BlogList({ initialPostMetadatas }) {
 
     const [blogMetadatas, setBlogMetadatas] = useState(initialPostMetadatas || []);
@@ -13,13 +15,7 @@ export default function BlogList({ initialPostMetadatas }) {
             setBlogMetadatas(initialPostMetadatas);
             return;
         }
-        const filtedItems = initialPostMetadatas
-            .filter(post => post.frontmatter.category === category && (!tag || post.frontmatter.tags?.includes(tag)))
-            .sort((a, b) => {
-                const dateA = new Date(a.frontmatter.publishedAt || 0).getTime();
-                const dateB = new Date(b.frontmatter.publishedAt || 0).getTime();
-                return dateB - dateA; // 按照 publishedAt 字段降序排序
-            });
+        const filtedItems = initialPostMetadatas.filter(post => post.frontmatter.category === category && (!tag || post.frontmatter.tags?.includes(tag)))
         setBlogMetadatas(filtedItems);
     };
 
